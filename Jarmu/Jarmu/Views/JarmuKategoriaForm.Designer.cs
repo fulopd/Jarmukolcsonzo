@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuKategoriaForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.jarmukategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategorianNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jarmukategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -58,29 +58,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 410);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // kategorianNevDataGridViewTextBoxColumn
-            // 
-            this.kategorianNevDataGridViewTextBoxColumn.DataPropertyName = "kategorianNev";
-            this.kategorianNevDataGridViewTextBoxColumn.HeaderText = "kategorianNev";
-            this.kategorianNevDataGridViewTextBoxColumn.Name = "kategorianNevDataGridViewTextBoxColumn";
-            // 
-            // jarmuDataGridViewTextBoxColumn
-            // 
-            this.jarmuDataGridViewTextBoxColumn.DataPropertyName = "jarmu";
-            this.jarmuDataGridViewTextBoxColumn.HeaderText = "jarmu";
-            this.jarmuDataGridViewTextBoxColumn.Name = "jarmuDataGridViewTextBoxColumn";
-            this.jarmuDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jarmukategoriaBindingSource
-            // 
-            this.jarmukategoriaBindingSource.DataSource = typeof(Jarmu.Models.jarmukategoria);
             // 
             // toolStrip1
             // 
@@ -101,6 +78,29 @@
             this.toolStripButton1.Text = "Mentés";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // jarmukategoriaBindingSource
+            // 
+            this.jarmukategoriaBindingSource.DataSource = typeof(Jarmu.Models.jarmukategoria);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // kategorianNevDataGridViewTextBoxColumn
+            // 
+            this.kategorianNevDataGridViewTextBoxColumn.DataPropertyName = "kategorianNev";
+            this.kategorianNevDataGridViewTextBoxColumn.HeaderText = "Név";
+            this.kategorianNevDataGridViewTextBoxColumn.Name = "kategorianNevDataGridViewTextBoxColumn";
+            // 
+            // jarmuDataGridViewTextBoxColumn
+            // 
+            this.jarmuDataGridViewTextBoxColumn.DataPropertyName = "jarmu";
+            this.jarmuDataGridViewTextBoxColumn.HeaderText = "jarmu";
+            this.jarmuDataGridViewTextBoxColumn.Name = "jarmuDataGridViewTextBoxColumn";
+            this.jarmuDataGridViewTextBoxColumn.Visible = false;
+            // 
             // JarmuKategoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,9 +112,9 @@
             this.Text = "Jarmukategoria";
             this.Load += new System.EventHandler(this.Jarmukategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmukategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

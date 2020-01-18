@@ -161,6 +161,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositoris\JarmuKategoriaRepository.cs" />
+    <Compile Include="Repositoris\JarmuListaRepository.cs" />
     <Compile Include="ViewInterfaces\IDataGridList.cs" />
     <Compile Include="Views\JarmuKategoriaForm.cs">
       <SubType>Form</SubType>
@@ -206,6 +207,7 @@
       <DependentUpon>JKModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Jarmu.Models.jarmu.datasource" />
     <None Include="Properties\DataSources\Jarmu.Models.jarmukategoria.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

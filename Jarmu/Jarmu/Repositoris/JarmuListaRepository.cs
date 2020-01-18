@@ -9,24 +9,22 @@ using System.Threading.Tasks;
 
 namespace Jarmu.Repositoris
 {
-    public class JarmuKategoriaRepository
+    public class JarmuListaRepository
     {
         private JKContext db = new JKContext();
 
-       
-        public BindingList<jarmukategoria> getAllKategoriak() {
+               
+        public BindingList<jarmu> getAllJarmu()
+        {
             //Tárolja el a memóriba a táblát
-            db.jarmukategoria.Load();
+            db.jarmu.Load();
             //Adja vissza a memóriában található listát
-            return db.jarmukategoria.Local.ToBindingList();
+            return db.jarmu.Local.ToBindingList();
         }
 
-       
-
-        public void Save() {
+        public void Save()
+        {
             db.SaveChanges();
         }
-
-
     }
 }
