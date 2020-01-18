@@ -31,9 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuListaForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStripButtonMentes = new System.Windows.Forms.ToolStripButton();
-            this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategoriaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,12 +40,13 @@
             this.modellDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ferohelyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fogyasztasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.elerhetoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.szervizbeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.elerhetoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.szervizbeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.szervizDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.muszakiDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beszerzesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmukategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
@@ -61,6 +61,15 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonMentes
+            // 
+            this.toolStripButtonMentes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMentes.Image")));
+            this.toolStripButtonMentes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMentes.Name = "toolStripButtonMentes";
+            this.toolStripButtonMentes.Size = new System.Drawing.Size(66, 22);
+            this.toolStripButtonMentes.Text = "Mentés";
+            this.toolStripButtonMentes.Click += new System.EventHandler(this.toolStripButtonMentes_Click);
             // 
             // dataGridView1
             // 
@@ -88,18 +97,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 395);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // toolStripButtonMentes
-            // 
-            this.toolStripButtonMentes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMentes.Image")));
-            this.toolStripButtonMentes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonMentes.Name = "toolStripButtonMentes";
-            this.toolStripButtonMentes.Size = new System.Drawing.Size(66, 22);
-            this.toolStripButtonMentes.Text = "Mentés";
-            // 
-            // jarmuBindingSource
-            // 
-            this.jarmuBindingSource.DataSource = typeof(Jarmu.Models.jarmu);
+            this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -148,12 +146,16 @@
             this.elerhetoDataGridViewTextBoxColumn.DataPropertyName = "elerheto";
             this.elerhetoDataGridViewTextBoxColumn.HeaderText = "elerheto";
             this.elerhetoDataGridViewTextBoxColumn.Name = "elerhetoDataGridViewTextBoxColumn";
+            this.elerhetoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.elerhetoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // szervizbeDataGridViewTextBoxColumn
             // 
             this.szervizbeDataGridViewTextBoxColumn.DataPropertyName = "szervizbe";
             this.szervizbeDataGridViewTextBoxColumn.HeaderText = "szervizbe";
             this.szervizbeDataGridViewTextBoxColumn.Name = "szervizbeDataGridViewTextBoxColumn";
+            this.szervizbeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.szervizbeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // szervizDatumDataGridViewTextBoxColumn
             // 
@@ -180,6 +182,10 @@
             this.jarmukategoriaDataGridViewTextBoxColumn.Name = "jarmukategoriaDataGridViewTextBoxColumn";
             this.jarmukategoriaDataGridViewTextBoxColumn.Visible = false;
             // 
+            // jarmuBindingSource
+            // 
+            this.jarmuBindingSource.DataSource = typeof(Jarmu.Models.jarmu);
+            // 
             // JarmuListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +195,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "JarmuListaForm";
             this.Text = "Jarmulista";
+            this.Load += new System.EventHandler(this.JarmuListaForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -203,6 +210,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonMentes;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource jarmuBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rendszamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kategoriaIdDataGridViewTextBoxColumn;
@@ -210,12 +218,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn modellDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ferohelyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fogyasztasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn elerhetoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn szervizbeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn elerhetoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn szervizbeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn szervizDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn muszakiDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn beszerzesDatumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jarmukategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource jarmuBindingSource;
     }
 }
