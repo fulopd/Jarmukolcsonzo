@@ -1,6 +1,6 @@
 ﻿namespace Jarmu.Views
 {
-    partial class Jarmulista
+    partial class JarmuListaForm
     {
         /// <summary>
         /// Required designer variable.

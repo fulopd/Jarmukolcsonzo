@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Jarmu.Views
 {
-    public partial class Jarmukategoria : Form, IDataGridList<jarmukategoria>
+    public partial class JarmuKategoriaForm : Form, IDataGridList<jarmukategoria>
     {
         private JarmuKategoriaPresenter presenter;
 
-        public Jarmukategoria()
+        public JarmuKategoriaForm()
         {
             InitializeComponent();
             presenter = new JarmuKategoriaPresenter(this);
@@ -30,6 +30,11 @@ namespace Jarmu.Views
         private void Jarmukategoria_Load(object sender, EventArgs e)
         {
             presenter.LoadData();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            presenter.Save();
         }
     }
 }

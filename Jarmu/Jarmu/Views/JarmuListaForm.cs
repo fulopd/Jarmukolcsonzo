@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Jarmu.Views
 {
-    public partial class Jarmulista : Form
+    public partial class JarmuListaForm : Form
     {
-        public Jarmulista()
+        public JarmuListaForm()
         {
             InitializeComponent();
         }

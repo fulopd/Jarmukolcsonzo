@@ -1,6 +1,6 @@
 ﻿namespace Jarmu.Views
 {
-    partial class Jarmukategoria
+    partial class JarmuKategoriaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jarmukategoria));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuKategoriaForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategorianNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +76,7 @@
             this.jarmuDataGridViewTextBoxColumn.DataPropertyName = "jarmu";
             this.jarmuDataGridViewTextBoxColumn.HeaderText = "jarmu";
             this.jarmuDataGridViewTextBoxColumn.Name = "jarmuDataGridViewTextBoxColumn";
+            this.jarmuDataGridViewTextBoxColumn.Visible = false;
             // 
             // jarmukategoriaBindingSource
             // 
@@ -98,15 +99,16 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(66, 22);
             this.toolStripButton1.Text = "Mentés";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // Jarmukategoria
+            // JarmuKategoriaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Jarmukategoria";
+            this.Name = "JarmuKategoriaForm";
             this.Text = "Jarmukategoria";
             this.Load += new System.EventHandler(this.Jarmukategoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -121,11 +123,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kategorianNevDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jarmuDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource jarmukategoriaBindingSource;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kategorianNevDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jarmuDataGridViewTextBoxColumn;
     }
 }

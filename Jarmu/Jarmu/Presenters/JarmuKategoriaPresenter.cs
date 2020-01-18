@@ -23,6 +23,11 @@ namespace Jarmu.Presenters
             view.bindingList = repo.getAllKategoriak();
         }
 
+        public void Save()
+        {
+            repo.Save();
+        }
+
     }
 
    

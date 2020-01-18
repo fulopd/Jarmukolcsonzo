@@ -106,14 +106,14 @@ namespace Jarmu.Views
 
         private void kategoriakToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childForm = new Jarmukategoria();
+            Form childForm = new JarmuKategoriaForm();
             childForm.MdiParent = this;
             childForm.Show();
         }
 
         private void jarmulistaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childForm = new Jarmulista();
+            Form childForm = new JarmuListaForm();
             childForm.MdiParent = this;
             childForm.Show();
         }
