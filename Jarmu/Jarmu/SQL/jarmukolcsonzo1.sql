@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Jan 11. 13:14
+-- Létrehozás ideje: 2020. Jan 18. 12:23
 -- Kiszolgáló verziója: 10.1.34-MariaDB
 -- PHP verzió: 7.2.8
 
@@ -39,11 +39,11 @@ CREATE TABLE IF NOT EXISTS `jarmu` (
   `modell` varchar(60) DEFAULT NULL,
   `ferohely` int(2) DEFAULT NULL,
   `fogyasztas` double DEFAULT NULL,
-  `elerheto` tinyint(1) DEFAULT NULL,
-  `szervizbe` tinyint(1) DEFAULT NULL,
-  `szervizDatum` datetime DEFAULT NULL,
+  `elerheto` tinyint(1) DEFAULT '1',
+  `szervizbe` tinyint(1) DEFAULT '0',
+  `szervizDatum` datetime DEFAULT CURRENT_TIMESTAMP,
   `muszakiDatum` datetime DEFAULT NULL,
-  `beszerzesDatum` datetime DEFAULT NULL,
+  `beszerzesDatum` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   KEY `kategoriaId` (`kategoriaId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
