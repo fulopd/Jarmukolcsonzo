@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\sze8füldan\Source\Repos\Jarmu\Jarmu\Jarmu\Models\JKModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\sze8füldan\source\repos\Jarmu\Jarmu\Jarmu\Models\JKModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

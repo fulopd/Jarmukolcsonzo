@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f0e6e855194647438402ace4cfd4fab4" Name="Diagram1">
-        <EntityTypeShape EntityType="jarmukolcsonzo1Model.jarmu" Width="1.5" PointX="5" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="jarmukolcsonzo1Model.jarmukategoria" Width="1.5" PointX="0.75" PointY="0.625" IsExpanded="true" />
-        <AssociationConnector Association="jarmukolcsonzo1Model.jarmu_ibfk_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="jarmukolcsonzo1Model.jarmu" Width="1.5" PointX="3.75" PointY="3" />
+        <EntityTypeShape EntityType="jarmukolcsonzo1Model.jarmukategoria" Width="1.5" PointX="1.5" PointY="3.625" />
+        <AssociationConnector Association="jarmukolcsonzo1Model.jarmu_ibfk_1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
