@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Jan 18. 12:23
+-- Létrehozás ideje: 2020. Feb 01. 14:00
 -- Kiszolgáló verziója: 10.1.34-MariaDB
 -- PHP verzió: 7.2.8
 
@@ -46,7 +46,15 @@ CREATE TABLE IF NOT EXISTS `jarmu` (
   `beszerzesDatum` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   KEY `kategoriaId` (`kategoriaId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `jarmu`
+--
+
+INSERT INTO `jarmu` (`Id`, `rendszam`, `kategoriaId`, `tipus`, `modell`, `ferohely`, `fogyasztas`, `elerheto`, `szervizbe`, `szervizDatum`, `muszakiDatum`, `beszerzesDatum`) VALUES
+(2, 'TESZT', 2, 'Opel', 'Corsa', 4, 2.5, 1, 0, '2020-01-18 12:55:56', NULL, '2020-01-18 12:55:56'),
+(3, 'TESZT2', 3, 'Scania', NULL, NULL, NULL, 1, 0, '2020-01-18 12:56:44', NULL, '2020-01-18 12:56:44');
 
 -- --------------------------------------------------------
 
@@ -68,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `jarmukategoria` (
 INSERT INTO `jarmukategoria` (`Id`, `kategorianNev`) VALUES
 (1, 'Személygépkocsi'),
 (2, 'Teherautó'),
-(3, 'Kamion0000000');
+(3, 'Kamion');
 
 --
 -- Megkötések a kiírt táblákhoz
