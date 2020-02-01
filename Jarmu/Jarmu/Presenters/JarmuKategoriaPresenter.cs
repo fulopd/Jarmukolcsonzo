@@ -26,6 +26,8 @@ namespace Jarmu.Presenters
                 view.search,
                 view.sortBy,
                 view.ascending);
+
+            view.totalitems = repo.Count();
         }
 
         public void Save()
