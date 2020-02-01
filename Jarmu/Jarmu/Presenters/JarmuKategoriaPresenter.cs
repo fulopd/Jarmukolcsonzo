@@ -20,7 +20,12 @@ namespace Jarmu.Presenters
         }
 
         public void LoadData() {
-            view.bindingList = repo.getAllKategoriak();
+            view.bindingList = repo.getAllKategoriak(
+                view.pageNumber,
+                view.itemsPerPage,
+                view.search,
+                view.sortBy,
+                view.ascending);
         }
 
         public void Save()

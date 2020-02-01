@@ -39,7 +39,19 @@ namespace Jarmu.Views
                 jkCol.DataSource = value;
             } 
         }
-        
+
+        public int pageNumber => throw new NotImplementedException();
+
+        public int itemsPerPage => throw new NotImplementedException();
+
+        public string search => throw new NotImplementedException();
+
+        public string sortBy => throw new NotImplementedException();
+
+        public bool ascending => throw new NotImplementedException();
+
+        public int totalitems { set => throw new NotImplementedException(); }
+
         private void JarmuListaForm_Load(object sender, EventArgs e)
         {
             presenter.LoadData();

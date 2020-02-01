@@ -12,5 +12,13 @@ namespace Jarmu.ViewInterfaces
     {
         //Oda vissza kapcsolat az adatbázis és a DataGridview között
         BindingList<G> bindingList { get; set; } //kapcsolad BindingList -nél oda vissza működik (modosítások adatbázisban mentődnek)
+        int pageNumber { get; }
+        int itemsPerPage { get; }
+        string search { get; }
+        string sortBy { get; }
+        bool ascending { get; }
+        int totalitems { set; }
+
+
     }
 }
