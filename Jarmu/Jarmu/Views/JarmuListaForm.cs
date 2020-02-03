@@ -17,12 +17,24 @@ namespace Jarmu.Views
     {
         private JarmuListaPresenter presenter;
         private DataGridViewComboBoxColumn jkCol;
+        private int pageCount;
+        private int colIndex;
 
         public JarmuListaForm()
         {
             InitializeComponent();
             presenter = new JarmuListaPresenter(this);
             jkCol = new DataGridViewComboBoxColumn();
+            Init();
+        }
+
+        public void Init()
+        {
+            pageNumber = 1;
+            itemsPerPage = 1;
+            sortBy = "Id";
+            ascending = true;
+            colIndex = 0;
         }
 
         public BindingList<jarmu> bindingList {
@@ -40,17 +52,21 @@ namespace Jarmu.Views
             } 
         }
 
-        public int pageNumber => throw new NotImplementedException();
+        public int pageNumber { get; set ; }
+        public int itemsPerPage { get; set; }
+        public string search => toolStripTextBox1.Text;
 
-        public int itemsPerPage => throw new NotImplementedException();
+        public string sortBy { get ; set; }
+        public bool ascending { get; set; }
 
-        public string search => throw new NotImplementedException();
-
-        public string sortBy => throw new NotImplementedException();
-
-        public bool ascending => throw new NotImplementedException();
-
-        public int totalitems { set => throw new NotImplementedException(); }
+        public int totalitems
+        {
+            set
+            {
+                pageCount = ((value - 1) / itemsPerPage) + 1;
+                pageLabel.Text = pageNumber.ToString() + " / " + pageCount.ToString();
+            }
+        }
 
         private void JarmuListaForm_Load(object sender, EventArgs e)
         {
@@ -80,6 +96,69 @@ namespace Jarmu.Views
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells["kategoriaId"].Value = 0;
+        }
+
+
+
+
+
+
+        private void searchToolStripButton_Click(object sender, EventArgs e)
+        {
+            presenter.LoadData();
+        }
+
+        private void firstButton_Click(object sender, EventArgs e)
+        {
+            pageNumber = 1;
+            presenter.LoadData();
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            if (pageNumber >= 2)
+            {
+                pageNumber--;
+                presenter.LoadData();
+            }
+
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            if (pageNumber < pageCount)
+            {
+                pageNumber++;
+                presenter.LoadData();
+            }
+
+        }
+
+        private void lastButton_Click(object sender, EventArgs e)
+        {
+            pageNumber = pageCount;
+            presenter.LoadData();
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (colIndex == e.ColumnIndex)
+            {
+                ascending = !ascending;
+            }
+
+            switch (e.ColumnIndex)
+            {
+                default:
+                    sortBy = "Id";
+                    break;
+                case 1:
+                    sortBy = "rendszam";
+                    break;
+            }
+
+            colIndex = e.ColumnIndex;
+            presenter.LoadData();
         }
     }
 }

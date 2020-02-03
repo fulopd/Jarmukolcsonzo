@@ -16,35 +16,44 @@ namespace Jarmu.Views
     public partial class JarmuKategoriaForm : Form, IDataGridList<jarmukategoria>
     {
         private JarmuKategoriaPresenter presenter;
-        private int perPage = 10, page = 1, pageCount;
+        private int pageCount;
+        private int colIndex;
 
 
         public JarmuKategoriaForm()
         {
             InitializeComponent();
             presenter = new JarmuKategoriaPresenter(this);
+            Init();
         }
 
-        public BindingList<jarmukategoria> bindingList {
+        public void Init()
+        {
+            pageNumber = 1;
+            itemsPerPage = 25;
+            sortBy = "Id";
+            ascending = true;
+            colIndex = 0;
+        }
+
+        public BindingList<jarmukategoria> bindingList
+        {
             get => (BindingList<jarmukategoria>)dataGridView1.DataSource;
-            set => dataGridView1.DataSource = value; }
+            set => dataGridView1.DataSource = value;
+        }
 
-        public int pageNumber => page;
-
-        public int itemsPerPage => perPage;
-
+        public int pageNumber { get; set; }
+        public int itemsPerPage { get; set; }
         public string search => KeresestoolStripTextBox.Text;
+        public string sortBy { get; set; }
+        public bool ascending { get; set; }
 
-        public string sortBy => null;
-
-        public bool ascending => true;
-
-        public int totalitems {
-
+        public int totalitems
+        {
             set
             {
-                pageCount = ((value -1) / perPage) + 1;
-                pageLabel.Text = page.ToString() + " / " + pageCount.ToString();
+                pageCount = ((value - 1) / itemsPerPage) + 1;
+                pageLabel.Text = pageNumber.ToString() + " / " + pageCount.ToString();
             }
         }
 
@@ -55,33 +64,33 @@ namespace Jarmu.Views
 
         private void firstButton_Click(object sender, EventArgs e)
         {
-            page = 1;
+            pageNumber = 1;
             presenter.LoadData();
         }
 
         private void prevButton_Click(object sender, EventArgs e)
         {
-            if (page>=2)
+            if (pageNumber >= 2)
             {
-                page--;
+                pageNumber--;
                 presenter.LoadData();
             }
-            
+
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            if (page < pageCount)
+            if (pageNumber < pageCount)
             {
-                page++;
+                pageNumber++;
                 presenter.LoadData();
             }
-            
+
         }
 
         private void lastButton_Click(object sender, EventArgs e)
         {
-            page = pageCount;
+            pageNumber = pageCount;
             presenter.LoadData();
         }
 
@@ -93,6 +102,27 @@ namespace Jarmu.Views
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             presenter.Save();
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (colIndex == e.ColumnIndex)
+            {
+                ascending = !ascending;
+            }
+
+            switch (e.ColumnIndex)
+            {
+                default:
+                    sortBy = "Id";
+                    break;
+                case 1:
+                    sortBy = "kategoriaNev";
+                    break;
+            }
+            
+            colIndex = e.ColumnIndex;
+            presenter.LoadData();
         }
     }
 }

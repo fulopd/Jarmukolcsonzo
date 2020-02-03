@@ -23,7 +23,14 @@ namespace Jarmu.Presenters
 
         public void LoadData()
         {
-            view.bindingList = repo.getAllJarmu();
+            view.bindingList = repo.getAllJarmu(
+                view.pageNumber,
+                view.itemsPerPage,
+                view.search,
+                view.sortBy,
+                view.ascending);
+
+            view.totalitems = repo.Count();
 
             view.jkLista = jkRepo.getAllKategoriak().ToList();
         }
