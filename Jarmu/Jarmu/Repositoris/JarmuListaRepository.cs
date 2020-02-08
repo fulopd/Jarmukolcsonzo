@@ -49,12 +49,16 @@ namespace Jarmu.Repositoris
                     case "rendszam":
                         query = ascending ? query.OrderBy(x => x.rendszam) : query.OrderByDescending(x => x.rendszam);
                         break;
+                    case "kategoriaId":
+                        query = ascending ? query.OrderBy(x => x.kategoriaId) : query.OrderByDescending(x => x.kategoriaId);
+                        break;
                     case "tipus":
                         query = ascending ? query.OrderBy(x => x.tipus) : query.OrderByDescending(x => x.tipus);
                         break;
                     case "modell":
                         query = ascending ? query.OrderBy(x => x.modell) : query.OrderByDescending(x => x.modell);
                         break;
+                   
                 }
             }
 

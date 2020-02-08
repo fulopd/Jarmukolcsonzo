@@ -31,7 +31,7 @@ namespace Jarmu.Views
         public void Init()
         {
             pageNumber = 1;
-            itemsPerPage = 1;
+            itemsPerPage = 10;
             sortBy = "Id";
             ascending = true;
             colIndex = 0;
@@ -55,10 +55,8 @@ namespace Jarmu.Views
         public int pageNumber { get; set ; }
         public int itemsPerPage { get; set; }
         public string search => toolStripTextBox1.Text;
-
         public string sortBy { get ; set; }
         public bool ascending { get; set; }
-
         public int totalitems
         {
             set
@@ -155,6 +153,16 @@ namespace Jarmu.Views
                 case 1:
                     sortBy = "rendszam";
                     break;
+                case 2:
+                    sortBy = "kategoriaId";
+                    break;
+                case 3:
+                    sortBy = "tipus";
+                    break;
+                case 4:
+                    sortBy = "modell";
+                    break;
+
             }
 
             colIndex = e.ColumnIndex;
