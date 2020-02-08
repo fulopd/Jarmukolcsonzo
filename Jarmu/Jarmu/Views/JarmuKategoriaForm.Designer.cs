@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuKategoriaForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategorianNevDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,7 +108,7 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Image = global::Jarmu.Properties.Resources.saveToolStripButton;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(66, 22);
@@ -123,7 +122,7 @@
             // 
             // searchToolStripButton
             // 
-            this.searchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripButton.Image")));
+            this.searchToolStripButton.Image = global::Jarmu.Properties.Resources.printPreviewToolStripButton;
             this.searchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.searchToolStripButton.Name = "searchToolStripButton";
             this.searchToolStripButton.Size = new System.Drawing.Size(66, 22);

@@ -32,17 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JarmuListaForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonMentes = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.firstButton = new System.Windows.Forms.Button();
-            this.prevButton = new System.Windows.Forms.Button();
-            this.nextButton = new System.Windows.Forms.Button();
-            this.lastButton = new System.Windows.Forms.Button();
-            this.pageLabel = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rendszamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kategoriaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +50,18 @@
             this.beszerzesDatumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmukategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jarmuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.firstButton = new System.Windows.Forms.Button();
+            this.prevButton = new System.Windows.Forms.Button();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.lastButton = new System.Windows.Forms.Button();
+            this.pageLabel = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -79,12 +79,31 @@
             // 
             // toolStripButtonMentes
             // 
-            this.toolStripButtonMentes.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMentes.Image")));
+            this.toolStripButtonMentes.Image = global::Jarmu.Properties.Resources.saveToolStripButton;
             this.toolStripButtonMentes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonMentes.Name = "toolStripButtonMentes";
             this.toolStripButtonMentes.Size = new System.Drawing.Size(66, 22);
             this.toolStripButtonMentes.Text = "Mentés";
             this.toolStripButtonMentes.Click += new System.EventHandler(this.toolStripButtonMentes_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            // 
+            // searchToolStripButton
+            // 
+            this.searchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripButton.Image")));
+            this.searchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.searchToolStripButton.Name = "searchToolStripButton";
+            this.searchToolStripButton.Size = new System.Drawing.Size(66, 22);
+            this.searchToolStripButton.Text = "Keresés";
+            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
             // 
             // dataGridView1
             // 
@@ -113,26 +132,95 @@
             this.dataGridView1.Size = new System.Drawing.Size(960, 447);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             this.dataGridView1.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView1_DefaultValuesNeeded);
             // 
-            // toolStripSeparator1
+            // idDataGridViewTextBoxColumn
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             // 
-            // toolStripTextBox1
+            // rendszamDataGridViewTextBoxColumn
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.rendszamDataGridViewTextBoxColumn.DataPropertyName = "rendszam";
+            this.rendszamDataGridViewTextBoxColumn.HeaderText = "rendszam";
+            this.rendszamDataGridViewTextBoxColumn.Name = "rendszamDataGridViewTextBoxColumn";
             // 
-            // searchToolStripButton
+            // kategoriaIdDataGridViewTextBoxColumn
             // 
-            this.searchToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripButton.Image")));
-            this.searchToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.searchToolStripButton.Name = "searchToolStripButton";
-            this.searchToolStripButton.Size = new System.Drawing.Size(66, 22);
-            this.searchToolStripButton.Text = "Keresés";
-            this.searchToolStripButton.Click += new System.EventHandler(this.searchToolStripButton_Click);
+            this.kategoriaIdDataGridViewTextBoxColumn.DataPropertyName = "kategoriaId";
+            this.kategoriaIdDataGridViewTextBoxColumn.HeaderText = "kategoriaId";
+            this.kategoriaIdDataGridViewTextBoxColumn.Name = "kategoriaIdDataGridViewTextBoxColumn";
+            // 
+            // tipusDataGridViewTextBoxColumn
+            // 
+            this.tipusDataGridViewTextBoxColumn.DataPropertyName = "tipus";
+            this.tipusDataGridViewTextBoxColumn.HeaderText = "tipus";
+            this.tipusDataGridViewTextBoxColumn.Name = "tipusDataGridViewTextBoxColumn";
+            // 
+            // modellDataGridViewTextBoxColumn
+            // 
+            this.modellDataGridViewTextBoxColumn.DataPropertyName = "modell";
+            this.modellDataGridViewTextBoxColumn.HeaderText = "modell";
+            this.modellDataGridViewTextBoxColumn.Name = "modellDataGridViewTextBoxColumn";
+            // 
+            // ferohelyDataGridViewTextBoxColumn
+            // 
+            this.ferohelyDataGridViewTextBoxColumn.DataPropertyName = "ferohely";
+            this.ferohelyDataGridViewTextBoxColumn.HeaderText = "ferohely";
+            this.ferohelyDataGridViewTextBoxColumn.Name = "ferohelyDataGridViewTextBoxColumn";
+            // 
+            // fogyasztasDataGridViewTextBoxColumn
+            // 
+            this.fogyasztasDataGridViewTextBoxColumn.DataPropertyName = "fogyasztas";
+            this.fogyasztasDataGridViewTextBoxColumn.HeaderText = "fogyasztas";
+            this.fogyasztasDataGridViewTextBoxColumn.Name = "fogyasztasDataGridViewTextBoxColumn";
+            // 
+            // elerhetoDataGridViewTextBoxColumn
+            // 
+            this.elerhetoDataGridViewTextBoxColumn.DataPropertyName = "elerheto";
+            this.elerhetoDataGridViewTextBoxColumn.HeaderText = "elerheto";
+            this.elerhetoDataGridViewTextBoxColumn.Name = "elerhetoDataGridViewTextBoxColumn";
+            this.elerhetoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.elerhetoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // szervizbeDataGridViewTextBoxColumn
+            // 
+            this.szervizbeDataGridViewTextBoxColumn.DataPropertyName = "szervizbe";
+            this.szervizbeDataGridViewTextBoxColumn.HeaderText = "szervizbe";
+            this.szervizbeDataGridViewTextBoxColumn.Name = "szervizbeDataGridViewTextBoxColumn";
+            this.szervizbeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.szervizbeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // szervizDatumDataGridViewTextBoxColumn
+            // 
+            this.szervizDatumDataGridViewTextBoxColumn.DataPropertyName = "szervizDatum";
+            this.szervizDatumDataGridViewTextBoxColumn.HeaderText = "szervizDatum";
+            this.szervizDatumDataGridViewTextBoxColumn.Name = "szervizDatumDataGridViewTextBoxColumn";
+            // 
+            // muszakiDatumDataGridViewTextBoxColumn
+            // 
+            this.muszakiDatumDataGridViewTextBoxColumn.DataPropertyName = "muszakiDatum";
+            this.muszakiDatumDataGridViewTextBoxColumn.HeaderText = "muszakiDatum";
+            this.muszakiDatumDataGridViewTextBoxColumn.Name = "muszakiDatumDataGridViewTextBoxColumn";
+            // 
+            // beszerzesDatumDataGridViewTextBoxColumn
+            // 
+            this.beszerzesDatumDataGridViewTextBoxColumn.DataPropertyName = "beszerzesDatum";
+            this.beszerzesDatumDataGridViewTextBoxColumn.HeaderText = "beszerzesDatum";
+            this.beszerzesDatumDataGridViewTextBoxColumn.Name = "beszerzesDatumDataGridViewTextBoxColumn";
+            // 
+            // jarmukategoriaDataGridViewTextBoxColumn
+            // 
+            this.jarmukategoriaDataGridViewTextBoxColumn.DataPropertyName = "jarmukategoria";
+            this.jarmukategoriaDataGridViewTextBoxColumn.HeaderText = "jarmukategoria";
+            this.jarmukategoriaDataGridViewTextBoxColumn.Name = "jarmukategoriaDataGridViewTextBoxColumn";
+            this.jarmukategoriaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // jarmuBindingSource
+            // 
+            this.jarmuBindingSource.DataSource = typeof(Jarmu.Models.jarmu);
             // 
             // panel1
             // 
@@ -229,93 +317,6 @@
             this.pageLabel.TabIndex = 1;
             this.pageLabel.Text = "0/0";
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // rendszamDataGridViewTextBoxColumn
-            // 
-            this.rendszamDataGridViewTextBoxColumn.DataPropertyName = "rendszam";
-            this.rendszamDataGridViewTextBoxColumn.HeaderText = "rendszam";
-            this.rendszamDataGridViewTextBoxColumn.Name = "rendszamDataGridViewTextBoxColumn";
-            // 
-            // kategoriaIdDataGridViewTextBoxColumn
-            // 
-            this.kategoriaIdDataGridViewTextBoxColumn.DataPropertyName = "kategoriaId";
-            this.kategoriaIdDataGridViewTextBoxColumn.HeaderText = "kategoriaId";
-            this.kategoriaIdDataGridViewTextBoxColumn.Name = "kategoriaIdDataGridViewTextBoxColumn";
-            // 
-            // tipusDataGridViewTextBoxColumn
-            // 
-            this.tipusDataGridViewTextBoxColumn.DataPropertyName = "tipus";
-            this.tipusDataGridViewTextBoxColumn.HeaderText = "tipus";
-            this.tipusDataGridViewTextBoxColumn.Name = "tipusDataGridViewTextBoxColumn";
-            // 
-            // modellDataGridViewTextBoxColumn
-            // 
-            this.modellDataGridViewTextBoxColumn.DataPropertyName = "modell";
-            this.modellDataGridViewTextBoxColumn.HeaderText = "modell";
-            this.modellDataGridViewTextBoxColumn.Name = "modellDataGridViewTextBoxColumn";
-            // 
-            // ferohelyDataGridViewTextBoxColumn
-            // 
-            this.ferohelyDataGridViewTextBoxColumn.DataPropertyName = "ferohely";
-            this.ferohelyDataGridViewTextBoxColumn.HeaderText = "ferohely";
-            this.ferohelyDataGridViewTextBoxColumn.Name = "ferohelyDataGridViewTextBoxColumn";
-            // 
-            // fogyasztasDataGridViewTextBoxColumn
-            // 
-            this.fogyasztasDataGridViewTextBoxColumn.DataPropertyName = "fogyasztas";
-            this.fogyasztasDataGridViewTextBoxColumn.HeaderText = "fogyasztas";
-            this.fogyasztasDataGridViewTextBoxColumn.Name = "fogyasztasDataGridViewTextBoxColumn";
-            // 
-            // elerhetoDataGridViewTextBoxColumn
-            // 
-            this.elerhetoDataGridViewTextBoxColumn.DataPropertyName = "elerheto";
-            this.elerhetoDataGridViewTextBoxColumn.HeaderText = "elerheto";
-            this.elerhetoDataGridViewTextBoxColumn.Name = "elerhetoDataGridViewTextBoxColumn";
-            this.elerhetoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.elerhetoDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // szervizbeDataGridViewTextBoxColumn
-            // 
-            this.szervizbeDataGridViewTextBoxColumn.DataPropertyName = "szervizbe";
-            this.szervizbeDataGridViewTextBoxColumn.HeaderText = "szervizbe";
-            this.szervizbeDataGridViewTextBoxColumn.Name = "szervizbeDataGridViewTextBoxColumn";
-            this.szervizbeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.szervizbeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // szervizDatumDataGridViewTextBoxColumn
-            // 
-            this.szervizDatumDataGridViewTextBoxColumn.DataPropertyName = "szervizDatum";
-            this.szervizDatumDataGridViewTextBoxColumn.HeaderText = "szervizDatum";
-            this.szervizDatumDataGridViewTextBoxColumn.Name = "szervizDatumDataGridViewTextBoxColumn";
-            // 
-            // muszakiDatumDataGridViewTextBoxColumn
-            // 
-            this.muszakiDatumDataGridViewTextBoxColumn.DataPropertyName = "muszakiDatum";
-            this.muszakiDatumDataGridViewTextBoxColumn.HeaderText = "muszakiDatum";
-            this.muszakiDatumDataGridViewTextBoxColumn.Name = "muszakiDatumDataGridViewTextBoxColumn";
-            // 
-            // beszerzesDatumDataGridViewTextBoxColumn
-            // 
-            this.beszerzesDatumDataGridViewTextBoxColumn.DataPropertyName = "beszerzesDatum";
-            this.beszerzesDatumDataGridViewTextBoxColumn.HeaderText = "beszerzesDatum";
-            this.beszerzesDatumDataGridViewTextBoxColumn.Name = "beszerzesDatumDataGridViewTextBoxColumn";
-            // 
-            // jarmukategoriaDataGridViewTextBoxColumn
-            // 
-            this.jarmukategoriaDataGridViewTextBoxColumn.DataPropertyName = "jarmukategoria";
-            this.jarmukategoriaDataGridViewTextBoxColumn.HeaderText = "jarmukategoria";
-            this.jarmukategoriaDataGridViewTextBoxColumn.Name = "jarmukategoriaDataGridViewTextBoxColumn";
-            this.jarmukategoriaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // jarmuBindingSource
-            // 
-            this.jarmuBindingSource.DataSource = typeof(Jarmu.Models.jarmu);
-            // 
             // JarmuListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,10 +331,10 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jarmuBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

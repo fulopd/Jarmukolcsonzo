@@ -1,5 +1,6 @@
 ﻿using Jarmu.Models;
 using Jarmu.Presenters;
+using Jarmu.Properties;
 using Jarmu.ViewInterfaces;
 using System;
 using System.Collections.Generic;
@@ -89,6 +90,7 @@ namespace Jarmu.Views
         private void toolStripButtonMentes_Click(object sender, EventArgs e)
         {
             presenter.Save();
+            
         }
 
         private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -167,6 +169,22 @@ namespace Jarmu.Views
 
             colIndex = e.ColumnIndex;
             presenter.LoadData();
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                switch (e.ColumnIndex)
+                {
+                    case 6:
+                        MessageBox.Show(Resources.ValosSzam , "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    default:
+                        MessageBox.Show(e.Exception.Message);
+                        break;
+                }
+            }
         }
     }
 }
